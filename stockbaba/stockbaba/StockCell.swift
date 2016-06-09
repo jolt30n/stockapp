@@ -10,7 +10,10 @@ import UIKit
 
 class StockCell: UITableViewCell {
     
+    @IBOutlet weak var gainLabel: UILabel!
+    @IBOutlet weak var openPriceLabel: UILabel!
     
+    @IBOutlet weak var closePriceLabel: UILabel!
     @IBOutlet weak var titleStock: UILabel!
     
     @IBOutlet weak var openPrice: UILabel!

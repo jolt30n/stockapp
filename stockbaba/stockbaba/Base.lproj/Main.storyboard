@@ -14,15 +14,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="127" sectionHeaderHeight="28" sectionFooterHeight="28" id="7aB-99-4ml">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="127" id="nlf-lr-IcN" customClass="StockCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="StockCell" rowHeight="127" id="nlf-lr-IcN" customClass="StockCell" customModule="stockbaba" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="127"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nlf-lr-IcN" id="3Fz-oA-jJU">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="126"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="126.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QDH-WU-opf">
@@ -78,7 +78,10 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="closePrice" destination="4X3-oR-aVk" id="19F-oa-e5s"/>
+                                            <outlet property="closePriceLabel" destination="BQe-AB-TSQ" id="JxI-ug-KXb"/>
+                                            <outlet property="gainLabel" destination="8Bm-ke-Yp7" id="qRc-3f-XDy"/>
                                             <outlet property="openPrice" destination="4xx-vp-A0J" id="IdW-T4-My7"/>
+                                            <outlet property="openPriceLabel" destination="4WK-j8-O8m" id="Jzc-PA-lvp"/>
                                             <outlet property="subtraction" destination="j9P-dv-WCT" id="BM5-xa-rPc"/>
                                             <outlet property="titleStock" destination="QDH-WU-opf" id="1Lc-X3-bVY"/>
                                         </connections>
@@ -94,7 +97,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-352" y="368"/>
+            <point key="canvasLocation" x="52" y="464"/>
         </scene>
     </scenes>
 </document>

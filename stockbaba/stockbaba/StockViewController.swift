@@ -35,10 +35,12 @@ class StockViewController: UIViewController, UITableViewDataSource, UITableViewD
         let task: NSURLSessionDataTask = session.dataTaskWithRequest(request,completionHandler: { (dataOrNil, response, error) in
             if let data = dataOrNil {
                 if let responseDictionary = try! NSJSONSerialization.JSONObjectWithData(data, options:[]) as? NSDictionary {
-                    print("response: \(responseDictionary)")
                     
-                    //self.stocks = responseDictionary[""] as! [NSDictionary]
-                    
+                    var dictionaryList: [NSDictionary] = [NSDictionary]()
+                    dictionaryList.append(responseDictionary)
+//                    print(dictionaryList)
+                    self.stocks = dictionaryList
+                    print(self.stocks)
                     self.tableView.reloadData()
                     
                 }
@@ -58,7 +60,7 @@ class StockViewController: UIViewController, UITableViewDataSource, UITableViewD
         else {
             return 0
         }
-        
+//        return 1
         //row number
     }
     
@@ -68,31 +70,18 @@ class StockViewController: UIViewController, UITableViewDataSource, UITableViewD
         let cell = tableView.dequeueReusableCellWithIdentifier("StockCell", forIndexPath: indexPath) as! StockCell
         //indexPath tells us the indexPath for each cell
         
-        let stock = stocks![indexPath.row]
-        let nameofStock = stock["full_name"] as! String
-        let open = stock["open_price"] as! String
-        let close = stock["close_price"] as! String
+        if let stock = self.stocks {
+            
+            let nameofStock = stock[indexPath.row]["full_name"] as? String
+            let open = stock[indexPath.row]["open_price"] as? Int
+            let close = stock[indexPath.row]["close_price"] as? Int
+            
+            cell.titleStock.text = nameofStock
+            cell.openPrice.text = "\(open!)"
+            cell.closePrice.text = "\(close!)"
+            
+        }
         
-        /*
-         var billAmount = NSString(string: billField.text!).doubleValue
-         var tip = billAmount * tipPercentage
-         var total = billAmount + tip
-         
-         tipLabel.text = "$\(tip)"
-         totalLabel.text = "$\(total)"
-         
-         tipLabel.text = String(format: "$%.2f", tip)
-         totalLabel.text = String(format: "$%.2f", total)
- 
-    */
-        
-        
-        cell.titleStock.text = nameofStock
-        cell.openPrice.text = open
-        cell.closePrice.text = close
-        
-        cell.textLabel!.text = title
-        print("row \(indexPath.row)")
         return cell
         
     }
